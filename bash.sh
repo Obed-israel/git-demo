@@ -11,3 +11,18 @@ check_homebrew() {
         echo "Homebrew is already installed."
     fi
 }
+
+# Function to check if Git is installed
+check_git() {
+    if command -v git &>/dev/null; then
+        echo "Git is already installed: $(git --version)"
+    else
+        echo "Installing Git via Homebrew..."
+        brew install git
+        echo "Git installed successfully: $(git --version)"
+    fi
+}
+
+# Run functions
+check_homebrew
+check_git
